@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.5" name="rootco-de-jump-host">
+  <description type="system">
+    <author>Richard Brown</author>
+    <contact>rbrown@suse.de</contact>
+    <specification>sshd jump host running on a Tumbleweed container guest</specification>
+  </description>
+  <preferences>
+    <type
+      image="docker"
+      derived_from="obsrepositories:/opensuse/tumbleweed#current">
+      <containerconfig
+        name="rootco-de/jump-host"
+        tag="current"
+        maintainer="Richard Brown &lt;rbrown@suse.de&gt;">
+        <subcommand execute="/usr/sbin/sshd -D"/>
+        <expose>
+          <port number="8282"/>
+        </expose>
+      </containerconfig>
+    </type>
+    <version>1.0.0</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-check-signatures>false</rpm-check-signatures>
+    <rpm-force>true</rpm-force>
+    <rpm-excludedocs>true</rpm-excludedocs>
+    <locale>en_US</locale>
+    <keytable>us.map.gz</keytable>
+    <hwclock>utc</hwclock>
+  </preferences>
+  <users>
+    <user home="/home/ilmehtar" name="ilmehtar" groups="users"/>
+  </users>
+  <repository>
+    <source path="obsrepositories:/"/>
+  </repository>
+  <packages type="image">
+    <package name="openssl"/>
+  </packages>
+</image>
