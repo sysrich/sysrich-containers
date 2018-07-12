@@ -14,9 +14,7 @@
         name="rootco-de/jump-host"
         tag="current"
         maintainer="Richard Brown &lt;rbrown@suse.de&gt;">
-        <subcommand execute="/usr/sbin/sshd">
-          <argument name="-D"/>
-        </subcommand>
+        <entrypoint execute="/usr/local/bin/entrypoint.sh"/>
         <expose>
           <port number="8282"/>
         </expose>
