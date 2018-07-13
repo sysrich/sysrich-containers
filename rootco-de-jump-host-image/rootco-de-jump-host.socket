@@ -3,7 +3,7 @@ Description=rootco.de jump host socket
 
 [Socket]
 ListenStream=8282
-Accept=false
+Accept=yes
 
 [Install]
 WantedBy=sockets.target
