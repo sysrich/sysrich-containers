@@ -4,18 +4,22 @@ echo "DEBUG: Keygen"
 # TODO: Make keys persistant
 /usr/sbin/sshd-gen-keys-start
 
-echo "DEBUG: Trigger monitor"
-/usr/local/bin/monitor.sh &
+echo "DEBUG: pts check"
+ls /dev/pts
 
 echo "DEBUG: SSHD start"
 /usr/sbin/sshd
+
+echo "DEBUG: pts check"
+ls /dev/pts
 
 # Wait 1 minute, then kill sshd as soon as no one is connected
 echo "DEBUG: 1m sleep"
 sleep 1m
 
 echo "DEBUG: Login check"
-until [ $(who | wc -l) = 0 ]; do
+ls /dev/pts
+until [ $(ls /dev/pts | wc -l) < 1 ]; do
   :
 done
 
