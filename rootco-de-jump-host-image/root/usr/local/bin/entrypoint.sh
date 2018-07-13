@@ -5,7 +5,8 @@ echo "DEBUG: Keygen"
 /usr/sbin/sshd-gen-keys-start
 
 echo "DEBUG: SSHD start"
-/usr/sbin/sshd -D
+# Not -D because daemonisation needed to run monitor below
+/usr/sbin/sshd
 
 # Wait 1 minute, then kill sshd if no one connected
 echo "DEBUG: 1m sleep"
