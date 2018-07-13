@@ -1,8 +1,6 @@
 #!/bin/bash
 
 echo "container START"
-echo "sshd-gen-keys-start"
-/usr/sbin/sshd-gen-keys-start
 
 echo "sshd START"
 /usr/sbin/sshd
