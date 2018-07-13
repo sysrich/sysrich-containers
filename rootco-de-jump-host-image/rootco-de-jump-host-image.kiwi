@@ -18,6 +18,9 @@
         <expose>
           <port number="8282"/>
         </expose>
+        <volumes>
+            <volume name="/usr/local/etc/sshd:ro"/>
+        </volumes>
       </containerconfig>
     </type>
     <version>1.0.0</version>
