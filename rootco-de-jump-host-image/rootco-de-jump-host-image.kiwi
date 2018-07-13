@@ -18,9 +18,6 @@
         <expose>
           <port number="8282"/>
         </expose>
-        <volumes>
-            <volume name="/etc/ssh"/>
-        </volumes>
       </containerconfig>
     </type>
     <version>1.0.0</version>
