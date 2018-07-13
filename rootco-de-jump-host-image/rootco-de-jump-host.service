@@ -1,0 +1,8 @@
+[Unit]
+Description=rootco.de jump host
+
+[Service]
+ExecStartPre=-/usr/bin/podman pull registry.opensuse.org/home/rbrownsuse/containers/container/rootco-de/jump-host:current
+ExecStartPre=-/usr/bin/podman rmi $(/usr/bin/podman images | /usr/bin/grep "<none>" | /usr/bin/awk '{print $3}')
+ExecStartPre=-/usr/bin/podman rm jump-host
+ExecStart=/usr/bin/podman run -p 8282:8282 --hostname jump-host --name jump-host -v /usr/local/jump-host/etc/ssh:/etc/ssh:ro registry.opensuse.org/home/rbrownsuse/containers/container/rootco-de/jump-host:current

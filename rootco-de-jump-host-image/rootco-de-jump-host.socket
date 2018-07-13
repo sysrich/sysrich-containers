@@ -1,0 +1,10 @@
+[Unit]
+Description=rootco.de jump host socket
+
+[Socket]
+ListenStream=8282
+Accept=false
+
+[Install]
+WantedBy=sockets.target
+

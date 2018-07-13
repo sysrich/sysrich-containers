@@ -4,7 +4,7 @@
   <description type="system">
     <author>Richard Brown</author>
     <contact>rbrown@suse.de</contact>
-    <specification>sshd jump host running on a Tumbleweed container guest.</specification>
+    <specification>sshd jump host running on a Tumbleweed container guest</specification>
   </description>
   <preferences>
     <type
