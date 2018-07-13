@@ -1,20 +1,22 @@
 #!/bin/bash
 
-echo "DEBUG: Keygen"
-# TODO: Make keys persistant
+echo "$(date -Iseconds). container START"
+echo "$(date -Iseconds). sshd-gen-keys-start"
 /usr/sbin/sshd-gen-keys-start
 
-echo "DEBUG: SSHD start"
+echo "$(date -Iseconds). sshd START"
 /usr/sbin/sshd
 
-# Wait 1 minute, then kill sshd as soon as no one is connected
-echo "DEBUG: 30s sleep"
-sleep 30s
+# Wait 15 seconds, then kill sshd as soon as no one is connected
+echo "$(date -Iseconds). 15s wait for initial login"
+sleep 15s
 
-echo "DEBUG: Login check"
+echo "$(date -Iseconds). login monitor"
 until [ $(who | wc -l) = 0 ]; do
   :
 done
 
-echo "DEBUG: Kill sshd"
+echo "$(date -Iseconds). no users logged in, kill sshd"
 /sbin/killproc sshd
+
+echo "$(date -Iseconds). container END"
