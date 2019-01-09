@@ -9,7 +9,7 @@
   <preferences>
     <type
       image="docker"
-      derived_from="obsrepositories:/opensuse/tumbleweed#current">
+      derived_from="obsrepositories:/opensuse/tumbleweed">
       <containerconfig
         name="rootco-de/jump-host"
         tag="current"
